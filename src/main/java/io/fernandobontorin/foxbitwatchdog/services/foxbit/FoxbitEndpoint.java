@@ -43,6 +43,7 @@ public class FoxbitEndpoint extends Endpoint {
     }
 
     public void message(MessageFrame message) {
+        logger.info("send {}", message);
         session.getAsyncRemote().sendText(message.toString());
     }
 

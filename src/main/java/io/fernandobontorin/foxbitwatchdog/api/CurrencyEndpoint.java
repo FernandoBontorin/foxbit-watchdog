@@ -12,10 +12,14 @@ public class CurrencyEndpoint {
     @Autowired
     BitcoinWatchDog watchDog;
 
-
     @GetMapping(value = "/bitcoin")
     public Currency getBitcoin() {
         return watchDog.getBitcoinCurrency();
+    }
+
+    @GetMapping(value = "/bitcoin/value")
+    public Double getBitcoinValue() {
+        return watchDog.getBitcoinCurrency().getLastTradedPx();
     }
 
 }

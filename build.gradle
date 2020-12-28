@@ -2,10 +2,11 @@ plugins {
 	id 'org.springframework.boot' version '2.4.1'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "3.0"
 }
 
 group = 'io.fernandobontorin'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.0'
 sourceCompatibility = '15'
 
 repositories {
@@ -16,6 +17,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "foxbit-watchdog"
+		property "sonar.organization", "fernandobontorin"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
 }
 
 test {
